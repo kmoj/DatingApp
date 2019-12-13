@@ -44,6 +44,7 @@ namespace DatingApp.API
             });
             // 1. CROSS ORIGIN SETTING
             services.AddCors();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             // services.AddSingleton reuse the repository instance
             // services.AddTransient create and destory the reppository instance every time it get used
             // services.AddScoped create and destory the reppository instance every once per request within current requst scope
