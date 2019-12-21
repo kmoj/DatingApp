@@ -32,6 +32,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { AlertifyService } from './_services/alertify.service';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { ListsResovler } from './_resolvers/lists.resolver';
 
 
 
@@ -92,6 +93,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberDetailResovler,
       MemberListResovler,
       MemberEditResovler,
+      ListsResovler,
       PreventUnsavedChanges,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
    ],
