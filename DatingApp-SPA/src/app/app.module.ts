@@ -33,6 +33,8 @@ import { AlertifyService } from './_services/alertify.service';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { ListsResovler } from './_resolvers/lists.resolver';
+import { MessagesResovler } from './_resolvers/message.resolver';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
 
 
@@ -60,6 +62,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       PhotoEditorComponent,
       ListsComponent,
       MessagesComponent,
+      MemberMessagesComponent,
       TimeAgoPipe
    ],
    imports: [
@@ -94,6 +97,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberListResovler,
       MemberEditResovler,
       ListsResovler,
+      MessagesResovler,
       PreventUnsavedChanges,
       { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
    ],
