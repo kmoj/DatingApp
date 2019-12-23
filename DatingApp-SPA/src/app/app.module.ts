@@ -10,7 +10,6 @@ import { FileUploadModule } from 'ng2-file-upload';
 import {TimeAgoPipe} from 'time-ago-pipe';
 
 import { AppComponent } from './app.component';
-import { from } from 'rxjs';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './_services/auth.service';
@@ -52,8 +51,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
 @NgModule({
    declarations: [
       AppComponent,
-      NavComponent,
       HomeComponent,
+      NavComponent,
       RegisterComponent,
       MemberListComponent,
       MemberCardComponent,

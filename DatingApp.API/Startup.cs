@@ -32,11 +32,24 @@ namespace DatingApp.API
 
         public IConfiguration Configuration { get; }
 
+        // public void ConfigureDevelopmentService(IServiceCollection services)
+        // {
+
+        // }
+
+        // public void ConfigureProductionService(IServiceCollection services)
+        // {
+            
+        // }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<DataContext>(options => {
+                options.UseLazyLoadingProxies();
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
             services.AddControllers().AddNewtonsoftJson(opt => 
             {
                 opt.SerializerSettings.ReferenceLoopHandling = 
@@ -94,6 +107,11 @@ namespace DatingApp.API
 
             // app.UseHttpsRedirection();
 
+            // Specifies using DefualtFiles
+            app.UseDefaultFiles();
+            // Allow loading Satic Files
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseAuthentication();
@@ -103,6 +121,7 @@ namespace DatingApp.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }
